@@ -1,0 +1,22 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/tailwind/base.css": "/css/tailwind/base.css",
+    "/css/tailwind/base.min.css": "/css/tailwind/base.min.css",
+    "/css/tailwind/components.css": "/css/tailwind/components.css",
+    "/css/tailwind/components.min.css": "/css/tailwind/components.min.css",
+    "/css/tailwind/tailwind-dark.css": "/css/tailwind/tailwind-dark.css",
+    "/css/tailwind/tailwind-dark.min.css": "/css/tailwind/tailwind-dark.min.css",
+    "/css/tailwind/tailwind-experimental.css": "/css/tailwind/tailwind-experimental.css",
+    "/css/tailwind/tailwind-experimental.min.css": "/css/tailwind/tailwind-experimental.min.css",
+    "/css/tailwind/tailwind.css": "/css/tailwind/tailwind.css",
+    "/css/tailwind/tailwind.min.css": "/css/tailwind/tailwind.min.css",
+    "/css/tailwind/utilities.css": "/css/tailwind/utilities.css",
+    "/css/tailwind/utilities.min.css": "/css/tailwind/utilities.min.css",
+    "/scripts/tailwind/build-plugins.js": "/scripts/tailwind/build-plugins.js",
+    "/scripts/tailwind/build.js": "/scripts/tailwind/build.js",
+    "/scripts/tailwind/compat.js": "/scripts/tailwind/compat.js",
+    "/scripts/tailwind/create-plugin-list.js": "/scripts/tailwind/create-plugin-list.js",
+    "/scripts/tailwind/install-integrations.js": "/scripts/tailwind/install-integrations.js",
+    "/scripts/tailwind/rebuildFixtures.js": "/scripts/tailwind/rebuildFixtures.js"
+}
