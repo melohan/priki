@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Practice;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        return view('welcome', ['data' => Practice::getLastUpdated()]);
+        setlocale(LC_TIME, 'French');
+        return view('welcome', ['data' => Practice::getLastUpdated(5)]);
     }
 }
