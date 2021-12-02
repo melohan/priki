@@ -14,4 +14,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/index', [HomeController::class, 'index']);
