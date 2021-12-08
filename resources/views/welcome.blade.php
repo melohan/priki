@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
-    @if(count($data)>0)
+    <livewire:practice.days />
+
+    @isset($data)
         <h1 class="text-xl" xmlns="http://www.w3.org/1999/html">Welcome</h1>
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50 text-center">
