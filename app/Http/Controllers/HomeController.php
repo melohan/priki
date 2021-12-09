@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        setlocale(LC_TIME, 'French');
-        return view('welcome', ['data' => Practice::getLastUpdated(10)]);
+
+        return view('welcome');
     }
 }
