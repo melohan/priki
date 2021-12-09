@@ -7,7 +7,6 @@
     <link href="css/tailwind/tailwind.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
         .font-family-karla {
             font-family: karla;
         }
@@ -21,29 +20,7 @@
 <body class="bg-white font-family-karla">
 
 <!-- Top Bar Nav -->
-<nav class="w-full py-4 bg-green-800 shadow">
-
-
-
-    <div class="w-full container mx-auto flex flex-wrap justify-end">
-        <div class="flex items-end text-lg no-underline text-white pr-6">
-            <a class="" href="/login">
-                <i class="fas fa-sign-in-alt"></i>&nbsp; Login
-            </a>
-        </div>
-        <div class="flex items-end text-lg no-underline text-white pr-6">
-            <a class="" href="/register">
-                <i class="fas fa-pen-nib"></i>&nbsp; Register
-            </a>
-        </div>
-        <div class="flex items-end text-lg no-underline text-white pr-6">
-            <a class="" href="/">
-                <i class="fa fa-building"></i>&nbsp; PRIKI
-            </a>
-        </div>
-    </div>
-</nav>
-
+@include('navigation')
 <!-- Text Header -->
 <header class="w-full container mx-auto">
     <div class="flex flex-col items-center py-12">
@@ -82,6 +59,7 @@
 
 
 </div>
+<script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
 @livewireScripts
 </body>
 </html>
