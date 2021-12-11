@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PracticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/index', [HomeController::class, 'index']);
+Route::get('/practices/domain/{id}', [PracticeController::class, 'domain']);
+Route::get('/practices/domain', [PracticeController::class, 'domain']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

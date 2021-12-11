@@ -11,6 +11,25 @@ class Practice extends Model
 {
     use HasFactory;
 
+    public static function getPublished()
+    {
+        return DB::table('practices')
+            ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
+            ->join('domains', 'practices.domain_id', '=', 'domains.id')
+            ->where('publication_states.slug', '=', 'PUB')
+            ->get();
+    }
+
+    public static function getPublishedPerDomain(int $domainId)
+    {
+        return DB::table('practices')
+            ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
+            ->join('domains', 'practices.domain_id', '=', 'domains.id')
+            ->where('publication_states.slug', '=', 'PUB')
+            ->where('domains.id', '=', $domainId)
+            ->get();
+    }
+
     public static function countPublished()
     {
         return DB::table('practices')
