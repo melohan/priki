@@ -43,8 +43,9 @@
             @foreach($practices as $practice)
                 <tr class="bg-white border-4 border-gray-200">
                     <td class="text-center align-middle px-12 py-2 items-center border-2 align-top">{{\Carbon\Carbon::parse($practice->updated_at)->formatLocalized('%d %B %Y')}}</td>
-                    <td class="align-middle px-12 py-2 items-center border-2 "><p
-                            class="text-justify">{{Str::limit($practice->description,400, ' ...')}}</p></td>
+                    <td class="align-middle px-12 py-2 items-center border-2 ">
+                        <a href="/practice/details/{{$practice->praticeId}}"><p class="text-justify">{{Str::limit($practice->description,400, ' ...')}}</p></a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
