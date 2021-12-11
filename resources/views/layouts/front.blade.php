@@ -20,7 +20,7 @@
 <body class="bg-white font-family-karla">
 
 <!-- Top Bar Nav -->
-@include('navigation')
+@include('layouts.front-navigation')
 <!-- Text Header -->
 <header class="w-full container mx-auto">
     <div class="flex flex-col items-center py-12">
