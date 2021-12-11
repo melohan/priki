@@ -14,4 +14,9 @@ class PracticeController extends Controller
         return view('practice-per-domain', ['practices' => $practices, 'id' => $id]);
     }
 
+    public function details(int $id)
+    {
+        return view('practice-details', ['practice' => Practice::getDetails($id)]);
+    }
+
 }

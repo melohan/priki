@@ -19,9 +19,10 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/index', [HomeController::class, 'index']);
 Route::get('/practices/domain/{id}', [PracticeController::class, 'domain']);
 Route::get('/practices/domain', [PracticeController::class, 'domain']);
+Route::get('/practice/details/{id}', [PracticeController::class, 'details']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
