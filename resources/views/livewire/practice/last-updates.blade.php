@@ -31,10 +31,10 @@
         <table class="min-w-full table-auto">
             <thead class="justify-between  border-4 border-purple-200">
             <tr class="bg-purple-200">
-                <th class="py-1 w-auto w-1/3">
-                    Date
+                <th class="py-1 w-auto w-1/4">
+                    Date de modification
                 </th>
-                <th class="py-1 w-auto 2-2/3">
+                <th class="py-1 w-auto w-3/4">
                     Description
                 </th>
             </tr>
@@ -42,9 +42,9 @@
             <tbody class="bg-gray-200">
             @foreach($practices as $practice)
                 <tr class="bg-white border-4 border-gray-200">
-                    <td class="text-center align-middle px-12 py-2 items-center border-2 align-top">{{\Carbon\Carbon::parse($practice->created_at)->formatLocalized('%d %B %Y')}}</td>
+                    <td class="text-center align-middle px-12 py-2 items-center border-2 align-top">{{\Carbon\Carbon::parse($practice->updated_at)->formatLocalized('%d %B %Y')}}</td>
                     <td class="align-middle px-12 py-2 items-center border-2 "><p
-                            class="text-justify">{{Str::limit($practice->description,255, ' ...')}}</p></td>
+                            class="text-justify">{{Str::limit($practice->description,400, ' ...')}}</p></td>
                 </tr>
             @endforeach
             </tbody>
