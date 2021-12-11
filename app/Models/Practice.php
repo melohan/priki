@@ -26,6 +26,7 @@ class Practice extends Model
     public static function getPublished()
     {
         return DB::table('practices')
+            ->select(['practices.description', 'practices.created_at', 'practices.updated_at', 'practices.id as praticeId', 'domains.name as domain'])
             ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
             ->join('domains', 'practices.domain_id', '=', 'domains.id')
             ->where('publication_states.slug', '=', 'PUB')
@@ -35,6 +36,7 @@ class Practice extends Model
     public static function getPublishedPerDomain(int $domainId)
     {
         return DB::table('practices')
+            ->select(['practices.description', 'practices.created_at', 'practices.updated_at', 'practices.id as praticeId', 'domains.name as domain'])
             ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
             ->join('domains', 'practices.domain_id', '=', 'domains.id')
             ->where('publication_states.slug', '=', 'PUB')
@@ -52,7 +54,9 @@ class Practice extends Model
 
     public static function getLastUpdated(int $n = 5)
     {
-        return DB::table('practices')->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
+        return DB::table('practices')
+            ->select(['practices.description', 'practices.created_at', 'practices.updated_at', 'practices.id as praticeId'])
+            ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
             ->where('publication_states.slug', '=', 'PUB')
             ->whereDate('updated_at', '>=', Carbon::now()->modify('-' . $n . ' days'))
             ->get();
