@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Practice;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use App\Models\Practice;
 
 class LastUpdates extends Component
@@ -18,7 +19,7 @@ class LastUpdates extends Component
     {
         // On repasse à 5 si on injecte une valeur éronnée.
         $this->days = intval($this->days);
-        $practices =  Practice::getLastUpdated($this->days);
-        return view('livewire.practice.last-updates', ['practices'=>$practices]);
+        $practices = Practice::getLastUpdated($this->days);
+        return view('livewire.practice.last-updates', ['practices' => $practices]);
     }
 }

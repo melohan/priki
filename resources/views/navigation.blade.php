@@ -1,4 +1,4 @@
-<nav class="w-full py-4 bg-green-800 shadow">
+<nav class="w-full py-4 2xl bg-purple-300 shadow">
 
 
     <div class="w-full container mx-auto flex flex-wrap justify-end">
