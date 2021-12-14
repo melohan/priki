@@ -6,19 +6,19 @@
 
         <!-- Login -->
         <div class="flex items-end text-lg no-underline text-white pr-6">
-            <a class="" href="/login">
-                <i class="fas fa-sign-in-alt"></i>&nbsp; Login
+            <a class="" href="{{route('login')}}">
+                <i class="fas fa-sign-in-alt"></i>&nbsp; Se connecter
             </a>
         </div>
         <!-- Register -->
         <div class="flex items-end text-lg no-underline text-white pr-6">
-            <a class="" href="/register">
+            <a class="" href="{{route('register')}}">
                 <i class="fas fa-pen-nib"></i>&nbsp; Register
             </a>
         </div>
         <!-- Home -->
         <div class="flex items-end text-lg no-underline text-white pr-6">
-            <a class="" href="/">
+            <a class="" href="{{route('home')}}">
                 <i class="fa fa-building"></i>&nbsp; PRIKI
             </a>
         </div>
