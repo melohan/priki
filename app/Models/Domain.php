@@ -17,6 +17,15 @@ class Domain extends Model
         'slug'
     ];
 
+    /**
+     * Get the practices for the domain.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function practices()
+    {
+        return $this->hasMany(Practice::class);
+    }
+
 
     public function countPractices()
     {

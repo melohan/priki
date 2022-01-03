@@ -11,6 +11,34 @@ class Practice extends Model
 {
     use HasFactory;
 
+    /**
+     * Get the domain that owns practice.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function domain()
+    {
+        return $this->belongsTo(Domain::class);
+    }
+
+    /**
+     * Get the publication state that owns practice.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function publicationState()
+    {
+        return $this->belongsTo(PublicationState::class);
+    }
+
+    /**
+     * Get the opinions for the practice.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function opinions()
+    {
+        return $this->hasMany(Opinion::class);
+    }
+
+
     public static function getDetails(int $id)
     {
         return DB::table('practices')
