@@ -1,12 +1,16 @@
-# Priki
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![TailwindCss](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-The aim of this project is to create a wiki for the PRW2 projects of the class. Priki is a collaborative project where
-the user stories were defined in class.
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/melohan/priki/develop?style=flat-square)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/melohan/priki/develop?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/melohan/priki?style=flat-square)
+
+# Priki
 
 ## Table of contents
 
 1. [Prerequisites](#prerequisites)
-    1. [Built with](#built-with)
+   1. [Built with](#build-with)
 2. [Setting up Dev](#setting-up-dev)
     1. [Installation](#installation)
     2. [Configuration](#configuration)
@@ -16,7 +20,8 @@ the user stories were defined in class.
 
 ### Build with
 
-- Laravel 8 (PHP 7.3+)
+- Laravel 8 
+- PHP 7.3+
 - Tailwindcss v2.2.19
 - Composer 2.1.14
 - npm 8.1.2
