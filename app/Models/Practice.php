@@ -38,6 +38,15 @@ class Practice extends Model
     }
 
     /**
+     * Get the user that owns practice.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * Get details by practice id.
      * @param int $id
      * @param bool $isPublished return all if isPublished equals to false.

@@ -41,4 +41,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the practices for the User.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function practices()
+    {
+        return $this->hasMany(Practice::class);
+    }
+
+    /**
+     * Get the role that owns user.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }
