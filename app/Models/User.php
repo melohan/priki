@@ -19,8 +19,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'fullname',
         'email',
         'password',
+        'role_id'
     ];
 
     /**
@@ -60,5 +62,13 @@ class User extends Authenticatable
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Return default role.
+     * @return Role
+     */
+    static function defaultRole(): Role
+    {
+        return Role::where('slug', 'MBR')->first();
+    }
 
 }
