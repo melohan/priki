@@ -72,21 +72,34 @@ class Practice extends Model
             ->get();
     }
 
+    /**
+     * Count number of published practices.
+     * @return mixed
+     */
     public static function countPublished()
     {
-        return DB::table('practices')
-            ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
-            ->whereIn('publication_states.slug', ['PUB'])
-            ->count();
+        return self::selectPublished()->count();
     }
 
+    /**
+     * Practices selection with published slug.
+     * @return mixed
+     */
+    private static function selectPublished()
+    {
+        return self::whereHas('publicationState', function ($q) {
+            $q->where('slug', 'PUB');
+        });
+    }
+
+    /**
+     * Return the last published practices that were modified n days ago
+     * @param int $n number of days
+     * @return mixed
+     */
     public static function getLastUpdated(int $n = 5)
     {
-        return DB::table('practices')
-            ->select(['practices.description', 'practices.created_at', 'practices.updated_at', 'practices.id as praticeId'])
-            ->join('publication_states', 'practices.publication_state_id', '=', 'publication_states.id')
-            ->where('publication_states.slug', '=', 'PUB')
-            ->whereDate('updated_at', '>=', Carbon::now()->modify('-' . $n . ' days'))
-            ->get();
+        return self::selectPublished()->where('updated_at', '>=', Carbon::now()->modify('-' . $n . ' days'))->get();
     }
+
 }
