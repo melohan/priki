@@ -13,7 +13,7 @@
          class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
         <ul class="py-1" aria-labelledby="dropdownLargeButton">
             <li>
-                <a href="/practices/domain"
+                <a href="{{route('domain') }}"
                    class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Tous
                     ({{$totalPractices}})
                 </a>
@@ -21,7 +21,7 @@
             @if(!empty($domains))
                 @foreach($domains as $domain)
                     <li>
-                        <a href="/practices/domain/{{$domain->id}}"
+                        <a href="{{route('domain.id' ,  ['id' => $domain->id])}}"
                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">{{$domain->name}}
                             ({{$domain->countPractices()->count }})
                         </a>

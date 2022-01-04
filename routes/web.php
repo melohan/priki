@@ -16,7 +16,7 @@ use App\Http\Controllers\PracticeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/practices/domain/{id}', [PracticeController::class, 'domain'])->name('domain');
+Route::get('/practices/domain/{id}', [PracticeController::class, 'domain'])->name('domain.id');
 Route::get('/practices/domain', [PracticeController::class, 'domain'])->name('domain');
 Route::get('/practice/details/{id}', [PracticeController::class, 'details'])->name('details');
 
