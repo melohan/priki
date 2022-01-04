@@ -13,11 +13,13 @@
                 <table class="table-auto mb-5">
                     <tr>
                         <td class="font-bold p-1">Domaine</td>
-                        <td class="p-1">{{$practice->domain}}</td>
+                        @if(!is_null($practice->domain))
+                            <td class="p-1">{{$practice->domain->name}}</td>
+                        @endif
                     </tr>
                     <tr>
                         <td class="font-bold p-1">Auteur</td>
-                        <td class="p-1">{{$practice->user}}</td>
+                        <td class="p-1">{{$practice->user->fullname}}</td>
                     </tr>
                     <tr>
                         <td class="font-bold p-1">Date de création</td>
