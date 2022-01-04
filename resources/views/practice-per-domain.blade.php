@@ -5,11 +5,11 @@
 
             @foreach($practices as $practice)
                 <article class="w-4/5 shadow rounded-md text-gray-800 mb-10">
-                    <a href="/practice/details/{{$practice->praticeId}}">
+                    <a href="{{route('details' ,  ['id' => $practice->id])}}">
                         <div class="h-10 bg-purple-200 rounded-t-md p-2 flex space-x-80 px-4 ">
                             <div class="w-4/6">
                                 <h1 class="font-bold text-lg ">
-                                    {{!isset($id)?$practice->domain:Str::limit($practice->description,40, ' ...')}}
+                                    {{!isset($id)?$practice->domain->name:Str::limit($practice->description,40, ' ...')}}
                                 </h1>
                             </div>
                             <div class="w-2/6 text-right"><span
