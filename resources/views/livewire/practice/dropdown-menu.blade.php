@@ -23,7 +23,7 @@
                     <li>
                         <a href="{{route('domain.id' ,  ['id' => $domain->id])}}"
                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">{{$domain->name}}
-                            ({{$domain->countPractices()->count }})
+                            ({{$domain->countPublishedPractice() }})
                         </a>
                     </li>
                 @endforeach
