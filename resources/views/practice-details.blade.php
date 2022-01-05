@@ -48,13 +48,8 @@
                     <div class="rounded-b-md bg-gray-50 p-4 divide-y">
                         <table class="table-auto mb-5">
                             <tr>
-                                @if(!is_null($practice->domain->user))
-                                    <td class="p-1">{{$practice->domain->user()->name}}</td>
-                                @endif
-                            </tr>
-                            <tr>
                                 <td class="font-bold p-1">Auteur</td>
-                                <td class="p-1">{{$practice->user->fullname}}</td>
+                                <td class="p-1">{{$opinion->user->name}}</td>
                             </tr>
                             <tr>
                                 <td class="font-bold p-1">Date de création</td>
