@@ -18,4 +18,13 @@ class Opinion extends Model
         return $this->belongsTo(Practice::class);
     }
 
+    /**
+     * Get the user that owns opinion.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

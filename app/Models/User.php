@@ -54,12 +54,29 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the opinions for the User.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function opinions(){
+        return $this->hasMany(Opinion::class);
+    }
+
+    /**
      * Get the role that owns user.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the opinion that owns user.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function opinion()
+    {
+        return $this->belongsTo(Opinion::class);
     }
 
     /**
