@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Domain;
-use Illuminate\Http\Request;
 use App\Models\Practice;
-use Illuminate\Support\Str;
-use MongoDB\Driver\Session;
 
 class PracticeController extends Controller
 {
