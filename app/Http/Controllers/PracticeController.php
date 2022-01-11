@@ -12,12 +12,12 @@ class PracticeController extends Controller
         $domain = Domain::find($id);
         \session(['domain'=>$domain]);
         $practices = isset($id) ? Practice::getPublishedPerDomain($id) : Practice::getPublished();
-        return view('practice-per-domain', ['practices' => $practices, 'id' => $id]);
+        return view('domain.practices', ['practices' => $practices, 'id' => $id]);
     }
 
     public function details(int $id)
     {
-        return view('practice-details', ['practice' => Practice::getDetails($id)]);
+        return view('practice.details', ['practice' => Practice::getDetails($id)]);
     }
 
 }
