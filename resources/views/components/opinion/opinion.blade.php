@@ -9,6 +9,10 @@
         <div class="rounded-b-md bg-gray-50 p-4 divide-y">
             <table class="table-auto mb-5">
                 <tr>
+                    <td class="font-bold p-1">Votes</td>
+                    <td class="p-1">(+) {{$opinion->upvotes()}}  (-) {{$opinion->downvotes()}}</td>
+                </tr>
+                <tr>
                     <td class="font-bold p-1">Auteur</td>
                     <td class="p-1">{{$opinion->user->name}}</td>
                 </tr>
@@ -23,6 +27,10 @@
                 <tr>
                     <td class="font-bold p-1">Description</td>
                     <td><p class="text-justify">{{$opinion->description}}</p></td>
+                </tr>
+                <tr>
+                    <td class="font-bold p-1">Comments</td>
+                    <td><p class="text-justify">{{$opinion->count()}}</p></td>
                 </tr>
             </table>
 

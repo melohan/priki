@@ -46,5 +46,12 @@ class Opinion extends Model
         return $this->comments()->wherePivot('points', '<', 0)->count();
     }
 
+    /**
+     * Count opinion on comments
+     * @return int
+     */
+    public function  count(){
+        return $this->comments()->count();
+    }
 
 }
