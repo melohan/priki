@@ -28,29 +28,8 @@
 
     <br>
     @if(count($practices)!=0)
-        <table class="min-w-full table-auto">
-            <thead class="justify-between  border-4 border-purple-200">
-            <tr class="bg-purple-200">
-                <th class="py-1 w-auto w-1/4">
-                    Date de modification
-                </th>
-                <th class="py-1 w-auto w-3/4">
-                    Description
-                </th>
-            </tr>
-            </thead>
-            <tbody class="bg-gray-200">
-            @foreach($practices as $practice)
-                <tr class="bg-white border-4 border-gray-200">
-                    <td class="text-center align-middle px-12 py-2 items-center border-2 align-top">{{\Carbon\Carbon::parse($practice->updated_at)->formatLocalized('%d %B %Y')}}</td>
-                    <td class="align-middle px-12 py-2 items-center border-2 ">
-                        <a href="{{route('details' ,  ['id' => $practice->id])}}">
-                            <p class="text-justify">{{Str::limit($practice->description,400, ' ...')}}</p>
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+        @foreach($practices as $practice)
+            <x-practice.practice-min :practice="$practice"/>
+        @endforeach
     @endif
 </div>
