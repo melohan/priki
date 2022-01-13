@@ -10,11 +10,13 @@
             <table class="table-auto mb-5">
                 <tr>
                     <td class="font-bold p-1">Votes</td>
-                    <td class="p-1">(+) {{$opinion->upvotes()}}  (-) {{$opinion->downvotes()}}</td>
+                    <td class="p-1">(+) {{$opinion->upvotes()}} (-) {{$opinion->downvotes()}}</td>
                 </tr>
                 <tr>
                     <td class="font-bold p-1">Auteur</td>
-                    <td class="p-1">{{$opinion->user->name}}</td>
+                    <td class="p-1">
+                        <a class="underline" href="{{route('profile' ,  ['id' => $opinion->user->id])}}">{{$opinion->user->name}}</a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="font-bold p-1">Date de création</td>

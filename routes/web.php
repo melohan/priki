@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/practice/domain/{id}', [PracticeController::class, 'domain'])->name('domain.id');
 Route::get('/practice/domain', [PracticeController::class, 'domain'])->name('domain');
 Route::get('/practice/details/{id}', [PracticeController::class, 'details'])->name('details');
+
+Route::get('/user/profile/{id}', [UserController::class, 'profile'])->name('profile');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
