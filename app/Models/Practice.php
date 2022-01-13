@@ -38,6 +38,16 @@ class Practice extends Model
     }
 
     /**
+     * Returns the opinion of the given user about this practice
+     * @param User $user
+     * @return Opinion
+     */
+    public function opinionOf (User $user) : ?Opinion
+    {
+        return $this->opinions()->where('user_id',$user->id)->first('description');
+    }
+
+    /**
      * Get the user that owns practice.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

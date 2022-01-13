@@ -9,14 +9,6 @@ class Opinion extends Model
 {
     use HasFactory;
 
-    /**
-     * Get the practice that owns opinion.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function practice()
-    {
-        return $this->belongsTo(Practice::class);
-    }
 
     /**
      * Get the user that owns opinion.
@@ -26,5 +18,33 @@ class Opinion extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get comments about an opinion
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function comments()
+    {
+        return $this->belongsToMany(User::class, 'user_opinion')->withPivot('comment', 'points');
+    }
+
+    /**
+     * Get sum of all upvotes (assumption is made that upvote is one point)
+     * @return int
+     */
+    public function upvotes()
+    {
+        return $this->comments()->wherePivot('points', '>', 0)->count();
+    }
+
+    /**
+     * Get sum of all downvotes (assumption is made that downvote is one point)
+     * @return int
+     */
+    public function downvotes()
+    {
+        return $this->comments()->wherePivot('points', '<', 0)->count();
+    }
+
 
 }
