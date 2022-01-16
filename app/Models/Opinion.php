@@ -54,4 +54,9 @@ class Opinion extends Model
         return $this->comments()->count();
     }
 
+    public function getComments(){
+        return $this->comments()->get();
+    }
+
+
 }
