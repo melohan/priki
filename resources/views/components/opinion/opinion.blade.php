@@ -1,4 +1,4 @@
-<article class="w-4/5 shadow rounded-md text-gray-800 mb-10">
+<article class="w-4/5 shadow rounded-md text-gray-800 mb-10 border">
     <div class="h-10 bg-gray-100 rounded-t-md p-2 flex space-x-80 px-4 ">
         <div class="w-4/6"><h1 class="font-bold text-lg ">
                 Opinions
@@ -32,8 +32,17 @@
                     <td class="p-1">(+) {{$opinion->upvotes()}} (-) {{$opinion->downvotes()}}</td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="font-bold p-1">
-                    <!-- TODO display comment -->
+                    <td colspan="2" class="font-normal p-1">
+
+                        <div x-data="{ open: false }">
+                            <button class="font-bold" x-on:click="open = ! open" type="button">
+                               Commentaires
+                            </button>
+
+                            <div x-show="open">
+                              <!-- TODO display comments -->
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
