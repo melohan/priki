@@ -33,9 +33,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="font-bold p-1">
-                        <div wire:key="{{$opinion->id}}">
-                            <livewire:opinion.comments :post="$opinion->getComments()">
-                        </div>
+                    <!-- TODO display comment -->
                     </td>
                 </tr>
             </table>
