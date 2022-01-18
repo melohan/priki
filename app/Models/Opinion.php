@@ -50,13 +50,8 @@ class Opinion extends Model
      * Count opinion on comments
      * @return int
      */
-    public function  count(){
+    public function count()
+    {
         return $this->comments()->count();
     }
-
-    public function getComments(){
-        return $this->comments()->get();
-    }
-
-
 }
