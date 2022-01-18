@@ -36,11 +36,13 @@
 
                         <div x-data="{ open: false }">
                             <button class="font-bold" x-on:click="open = ! open" type="button">
-                               Commentaires
+                                Commentaires
                             </button>
 
                             <div x-show="open">
-                              <!-- TODO display comments -->
+                                @foreach($opinion->comments as $comment)
+                                    <x-opinion.comments :comment="$comment"/>
+                                @endforeach
                             </div>
                         </div>
                     </td>
