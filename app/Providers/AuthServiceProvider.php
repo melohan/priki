@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Models\User;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('moderator', function (User $user) {
+            return $user->slug === 'MOD';
+        });
     }
 }
