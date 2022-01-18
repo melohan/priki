@@ -23,7 +23,7 @@
                     <x-slot name="trigger">
 
                         <div class="flex items-end text-lg no-underline text-white pr-6">
-                            <div>{{ Auth::user()->name }} ({{ Auth::user()->fullname }})</div>
+                            <div>{{ Auth::user()->name }} - {{Auth::user()->role->name}} ({{ Auth::user()->fullname }})</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
