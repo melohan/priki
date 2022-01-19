@@ -1,6 +1,6 @@
 <div class="w-5/6">
 
-    <div class="bg-purple-100 border-l-4 border-purple-400 text-orange-700 p-4" role="alert">
+    <div class="bg-gray-400 border-l-4 border-gray-700 p-4" role="alert">
         <p class="font-bold text-center">
             @if(count($practices)!=0)
                 Nouveau de {{$days}} jours.

@@ -1,12 +1,12 @@
-<article class="w-4/5 shadow rounded-md text-gray-800 mb-10 border">
-    <div class="h-10 bg-gray-100 rounded-t-md p-2 flex space-x-80 px-4 ">
+<article class="w-4/5 shadow text-gray-800 mb-10 border">
+    <div class="h-10 bg-gray-100 p-2 flex space-x-80 px-4 ">
         <div class="w-4/6"><h1 class="font-bold text-lg ">
                 Opinions
             </h1>
         </div>
     </div>
     @foreach($practice->opinions as $opinion)
-        <div class="rounded-b-md bg-gray-50 p-4 divide-y">
+        <div class="bg-gray-50 p-4 divide-y">
             <table class="table-auto mb-5">
                 <tr>
                     <td class="font-bold p-1">Auteur</td>
@@ -29,7 +29,10 @@
                 </tr>
                 <tr>
                     <td class="font-bold p-1">Votes</td>
-                    <td class="p-1">(+) {{$opinion->upvotes()}} (-) {{$opinion->downvotes()}}</td>
+                    <td class="p-1">
+                        <i class="fas fa-thumbs-up text-gray-700"></i> {{$opinion->upvotes()}}
+                        <i class="fas fa-thumbs-down text-gray-700"></i> {{$opinion->downvotes()}}
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2" class="font-normal p-1">

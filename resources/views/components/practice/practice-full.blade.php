@@ -1,6 +1,6 @@
     <!-- Practice -->
-    <article class="w-4/5 shadow rounded-md text-gray-800 mb-10">
-        <div class="h-10 bg-purple-200 rounded-t-md p-2 flex space-x-80 px-4 ">
+    <article class="w-4/5 shadow text-gray-800 mb-10">
+        <div class="h-10 bg-gray-700 text-white p-2 flex space-x-80 px-4 ">
             <div class="w-4/6"><h1 class="font-bold text-lg ">
                     {{Str::limit($practice->description,40, ' ...')}}
                 </h1>

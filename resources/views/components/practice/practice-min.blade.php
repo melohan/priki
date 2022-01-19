@@ -1,13 +1,13 @@
 <!-- Practice -->
-<article class="w-5/5 shadow rounded-md text-gray-800 mb-10">
+<article class="w-5/5 shadow text-gray-800 mb-10">
     <a href="{{route('details' ,  ['id' => $practice->id])}}">
-        <div class="h-10 bg-purple-200 rounded-t-md p-2 flex space-x-80 px-4 ">
+        <div class="h-10 bg-gray-700 text-white p-2 flex space-x-80 px-4 ">
             <div class="w-5/6"><h1 class="font-bold text-lg ">
                     {{Str::limit($practice->description,40, ' ...')}}
                 </h1>
             </div>
         </div>
-        <div class="rounded-b-md bg-gray-50 p-4 ">
+        <div class="bg-gray-50 p-4 ">
             <table class="table-auto mb-5">
                 <tr>
                     <td class="font-bold p-1">Domaine</td>
