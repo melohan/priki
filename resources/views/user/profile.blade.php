@@ -1,4 +1,3 @@
-@extends('layouts.front')
-@section('content')
+<x-app-layout>
     <h1>User profil</h1>
-@stop
+</x-app-layout>

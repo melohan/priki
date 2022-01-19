@@ -1,10 +1,8 @@
 <nav class="w-full py-4 2xl bg-gray-700 shadow">
-
-
     <div class="w-full container mx-auto flex flex-wrap justify-end">
         <livewire:practice.dropdown-menu/>
     @if(is_null(Auth::user()))
-            <!-- Login -->
+        <!-- Login -->
             <div class="flex items-end text-lg no-underline text-white pr-6">
                 <a class="" href="{{route('login')}}">
                     <i class="fas fa-sign-in-alt"></i>&nbsp; Se connecter
@@ -23,7 +21,9 @@
                     <x-slot name="trigger">
 
                         <div class="flex items-end text-lg no-underline text-white pr-6">
-                            <div>{{ Auth::user()->name }} - {{Auth::user()->role->name}} ({{ Auth::user()->fullname }})</div>
+                            <div>{{ Auth::user()->name }} - {{Auth::user()->role->name}} ({{ Auth::user()->fullname }}
+                                )
+                            </div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@
     <!-- Home -->
         <div class="flex items-end text-lg no-underline text-white pr-6">
             <a class="" href="{{route('home')}}">
-                <i class="fa fa-building"></i>&nbsp; PRIKI
+                <i class="fas fa-book"></i>&nbsp; PRIKI
             </a>
         </div>
     </div>

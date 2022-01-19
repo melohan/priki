@@ -1,5 +1,4 @@
-@extends('layouts.front')
-@section('content')
+<x-app-layout>
     @if(count($practices)!=0)
         <div class="w-5/6  flex items-center  flex-col  place-content-center ">
 
@@ -24,10 +23,10 @@
             @endforeach
         </div>
     @else
-        <div class="w-5/6 bg-gray-700 border-l-4 border-purple-400 text-white p-4" role="alert">
+        <div class="w-5/6 bg-gray-700 border-l-4 border-gray-400 text-white p-4" role="alert">
             <p class="font-bold text-center">
                 Aucune pratique à afficher ici.
             </p>
         </div>
     @endif
-@stop
+</x-app-layout>

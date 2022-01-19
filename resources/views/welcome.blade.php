@@ -1,6 +1,3 @@
-@extends('layouts.front')
-@section('content')
-
-    <livewire:practice.last-updates />
-
-@stop
+<x-app-layout>
+    <livewire:practice.last-updates/>
+</x-app-layout>

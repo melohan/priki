@@ -1,5 +1,4 @@
-@extends('layouts.front')
-@section('content')
+<x-app-layout>
     <!-- Practice -->
     @if(!is_null($practice))
         <x-practice.practice-full :practice="$practice"/>
@@ -16,4 +15,4 @@
             </p>
         </div>
     @endif
-@stop
+</x-app-layout>
