@@ -22,7 +22,8 @@ class PracticeController extends Controller
 
     public function details(int $id)
     {
-        return view('practice.details', ['practice' => Practice::getDetails($id)]);
+        $publishedOnly = !(!is_null(Auth::user()) && Auth::user()->role->slug = 'MOD');
+        return view('practice.details', ['practice' => Practice::getDetails($id, $publishedOnly)]);
     }
 
     public function list()

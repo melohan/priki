@@ -62,9 +62,9 @@ class Practice extends Model
      * @param bool $isPublished return all if isPublished equals to false.
      * @return mixed
      */
-    public static function getDetails(int $id, bool $isPublished = true)
+    public static function getDetails(int $id, bool $publishedOnly = true)
     {
-        return $isPublished ? self::selectPublished()->where('practices.id', '=', $id)->first() : self::find($id)->first();
+        return $publishedOnly ? self::selectPublished()->where('practices.id', '=', $id)->first() : self::find($id)->first();
     }
 
     /**
