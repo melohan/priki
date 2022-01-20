@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Practice;
+use App\Policies\PracticePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
@@ -15,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Practice::class => PracticePolicy::class
     ];
 
     /**
@@ -30,5 +32,6 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('moderate', function (User $user) {
             return $user->role->slug === 'MOD';
         });
+
     }
 }
