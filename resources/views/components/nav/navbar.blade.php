@@ -1,28 +1,12 @@
 <nav class="w-full py-4 2xl bg-gray-700 shadow">
     <div class="w-full container mx-auto flex flex-wrap justify-end">
-        <!-- Admin List -->
-
-    @if(is_null(Auth::user()) && (Auth::user()->slug == 'MOD'))
-        <!-- Login -->
-            <div class="flex items-end text-lg no-underline text-white pr-6">
-                <a class="" href="{{route('login')}}">
-                    <i class="fas fa-sign-in-alt"></i>&nbsp; Se connecter
-                </a>
-            </div>
-            <!-- Register -->
-            <div class="flex items-end text-lg no-underline text-white pr-6">
-                <a class="" href="{{route('register')}}">
-                    <i class="fas fa-pen-nib"></i>&nbsp; S'inscrire
-                </a>
-            </div>
-        @else
+        @if(!is_null(Auth::user()) && (Auth::user()->role->slug == 'MOD'))
             <div class="flex items-end text-lg no-underline text-white pr-6">
                 <a class="2xl:font-bold" href="{{route('adminList')}}">
                     Practices
                 </a>
             </div>
-    @endif
-    <!-- Domain  -->
+        @endif
         <livewire:practice.dropdown-menu/>
     @if(is_null(Auth::user()))
         <!-- Login -->
