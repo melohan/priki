@@ -2,18 +2,22 @@
 
 namespace App\View\Components\practice;
 
+use App\Models\Practice;
 use Illuminate\View\Component;
+
 
 class PracticeCard extends Component
 {
+    private $practice;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Practice $practice)
     {
-        //
+        $this->practice = $practice;
     }
 
     /**
@@ -23,6 +27,6 @@ class PracticeCard extends Component
      */
     public function render()
     {
-        return view('components.practice.practice-card');
+        return view('components.practice.practice-card')->with('practice', $this->practice);
     }
 }

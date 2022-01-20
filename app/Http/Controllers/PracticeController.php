@@ -27,7 +27,7 @@ class PracticeController extends Controller
 
     public function list()
     {
-        return view('practice.list', ['practice' => Practice::all()]);
+        return view('practice.list', ['domains' => Domain::all()]);
     }
 
 }

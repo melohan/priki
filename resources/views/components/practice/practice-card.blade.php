@@ -1,23 +1,29 @@
-<!-- Practice -->
 <div class="max-w-sm lg:max-w-full lg:flex">
-    <div
-        class="border border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-        <div class="mb-8">
-            <p class="text-sm text-gray-600 flex items-center">
-                Proposé
-            </p>
-            <div class="text-gray-900 font-bold text-xl mb-2">Domaine</div>
-            <p class="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-                quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-            </p>
-        </div>
-        <div class="flex items-center">
+    <a href="{{route('details' ,  ['id' => $practice->id])}}">
+        <div
+            class="border border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+            <div class="mb-8">
+                <p class="text-sm text-gray-600 flex items-center">
 
-            <div class="text-sm">
-                <p class="text-gray-900 leading-none">Nom Prénom</p>
-                <p class="text-gray-600">13 janvier 2022</p>
+                <span
+                    class="inline-block bg-blue-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    {{$practice->publicationState->name}}
+                </span>
+
+                </p>
+                <div class="text-gray-900 font-bold text-xl mb-2">{{$practice->domain->name}}</div>
+
+                <p class="text-gray-700 text-justify">
+                    {{Str::limit($practice->description,200, ' ...')}}
+                </p>
+            </div>
+            <div class="flex items-center">
+
+                <div class="text-sm">
+                    <p class="text-gray-900 leading-none">{{$practice->user->name}}, ({{$practice->user->fullname}})</p>
+                    <p class="text-gray-600">{{\Carbon\Carbon::parse($practice->created_at)->formatLocalized('%d %B %Y')}}</p>
+                </div>
             </div>
         </div>
-    </div>
+    </a>
 </div>

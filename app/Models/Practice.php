@@ -116,4 +116,10 @@ class Practice extends Model
         return self::selectPublished()->where('updated_at', '>=', Carbon::now()->modify('-' . $n . ' days'))->get();
     }
 
+    public static function allSortedBySlug(){
+        return self::whereHas('publicationState', function ($q) {
+            $q->orderBy('slug');
+        })->get();
+    }
+
 }
