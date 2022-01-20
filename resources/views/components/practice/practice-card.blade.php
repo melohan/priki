@@ -1,4 +1,4 @@
-<div class="max-w-sm lg:max-w-full lg:flex">
+<div class="max-w-sm lg:max-w-full lg:flex shadow">
     <a href="{{route('details' ,  ['id' => $practice->id])}}">
         <div
             class="border border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
