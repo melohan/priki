@@ -27,8 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('moderator', function (User $user) {
-            return $user->slug === 'MOD';
+        Gate::define('moderate', function (User $user) {
+            return $user->role->slug === 'MOD';
         });
     }
 }

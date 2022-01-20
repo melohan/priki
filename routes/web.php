@@ -16,12 +16,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
+// Users
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/practice/domain/{id}', [PracticeController::class, 'domain'])->name('domain.id');
 Route::get('/practice/domain', [PracticeController::class, 'domain'])->name('domain');
 Route::get('/practice/details/{id}', [PracticeController::class, 'details'])->name('details');
-
 Route::get('/user/profile/{id}', [UserController::class, 'profile'])->name('profile');
+
+// Admin pages
+Route::get('/practice/list', [PracticeController::class, 'list'])->name('adminList')->can('moderate');
+
 
 
 Route::get('/dashboard', function () {
