@@ -46,6 +46,7 @@
                                 @foreach($opinion->comments as $comment)
                                     <x-opinion.comments :comment="$comment"/>
                                 @endforeach
+                                    <x-opinion.comment-form :opinion="$opinion"/>
                             </div>
                         </div>
                     </td>
