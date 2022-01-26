@@ -42,9 +42,9 @@ class Practice extends Model
      * @param User $user
      * @return Opinion
      */
-    public function opinionOf (User $user) : ?Opinion
+    public function opinionOf(User $user): ?Opinion
     {
-        return $this->opinions()->where('user_id',$user->id)->first('description');
+        return $this->opinions()->where('user_id', $user->id)->first('description');
     }
 
     /**
@@ -120,16 +120,28 @@ class Practice extends Model
      * Return sorted publication by publication state slug
      * @return mixed
      */
-    public static function allSortedBySlug(){
+    public static function allSortedBySlug()
+    {
         return self::whereHas('publicationState', function ($q) {
             $q->orderBy('slug');
         })->get();
     }
 
-
-    public function isProposed() :bool
+    /**
+     * Is current publication state proposed
+     * @return bool
+     */
+    public function isProposed(): bool
     {
         return $this->publicationState->slug === 'PRO';
     }
 
+    /**
+     * Put the practice in published state
+     */
+    public function publish(): void
+    {
+        $this->publicationState()->associate(PublicationState::where('slug','PUB')->first());
+        $this->save();
+    }
 }
