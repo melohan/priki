@@ -9,6 +9,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class PracticeController extends Controller
 {
@@ -31,4 +33,15 @@ class PracticeController extends Controller
         return view('practice.list', ['domains' => Domain::all()]);
     }
 
+    public function publish(Request $request, int $id): RedirectResponse
+    {
+        $practice = Practice::find($id);
+        if ($request->user()->cannot('publish', $practice)) {
+            abort(403);
+        }
+
+        $practice->publish();
+
+        return redirect()->route('home')->with('success', __('business.practice.published'));
+    }
 }
