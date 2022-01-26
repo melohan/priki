@@ -64,7 +64,7 @@ class Practice extends Model
      */
     public static function getDetails(int $id, bool $publishedOnly = true)
     {
-        return $publishedOnly ? self::selectPublished()->where('practices.id', '=', $id)->first() : self::find($id)->first();
+        return $publishedOnly ? self::selectPublished()->where('practices.id', '=', $id)->first() : self::find($id);
     }
 
     /**
@@ -129,7 +129,7 @@ class Practice extends Model
 
     public function isProposed() :bool
     {
-        return $this->slug === 'PRO';
+        return $this->publicationState->slug === 'PRO';
     }
 
 }
