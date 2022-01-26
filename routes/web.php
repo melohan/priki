@@ -25,7 +25,8 @@ Route::get('/user/profile/{id}', [UserController::class, 'profile'])->name('prof
 
 // Admin pages
 Route::get('/practice/list', [PracticeController::class, 'list'])->name('adminList')->can('moderate');
-
+Route::post('/practice/publish/{id}', [PracticeController::class, 'publish'])
+    ->name('practices.publish');
 
 
 Route::get('/dashboard', function () {
