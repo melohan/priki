@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OpinionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('/user/profile/{id}', [UserController::class, 'profile'])->name('prof
 Route::get('/practice/list', [PracticeController::class, 'list'])->name('adminList')->can('moderate');
 Route::post('/practice/publish/{id}', [PracticeController::class, 'publish'])
     ->name('practices.publish');
+
+Route::post('/opinion/comment/{id}',[OpinionController::class,'comment'])
+    ->name('opinion.comment');
 
 
 Route::get('/dashboard', function () {
