@@ -14,7 +14,7 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.reference.list', ['references' => Reference::all()]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ReferenceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +41,7 @@ class ReferenceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Reference  $reference
+     * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
      */
     public function show(Reference $reference)
@@ -52,7 +52,7 @@ class ReferenceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Reference  $reference
+     * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
      */
     public function edit(Reference $reference)
@@ -63,8 +63,8 @@ class ReferenceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reference  $reference
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Reference $reference)
@@ -75,7 +75,7 @@ class ReferenceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Reference  $reference
+     * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
      */
     public function destroy(Reference $reference)
