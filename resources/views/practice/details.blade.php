@@ -2,6 +2,8 @@
     <!-- Practice -->
     @if(!is_null($practice))
 
+        <x-practice.practice-history :practice="$practice"/>
+
         <x-practice.practice-full :practice="$practice"/>
 
         <x-opinion.opinion :practice="$practice"/>
