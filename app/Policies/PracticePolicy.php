@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Practice;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 
 class PracticePolicy
 {
@@ -53,8 +54,9 @@ class PracticePolicy
      */
     public function update(User $user, Practice $practice)
     {
-        //
+        return ($practice->isAuthor($user) || $user->isModerator());
     }
+    
 
     /**
      * Determine whether the user can delete the model.
