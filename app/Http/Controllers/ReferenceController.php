@@ -38,7 +38,7 @@ class ReferenceController extends Controller
                 'description' => 'required|max:100|regex:/\s*(\S\s*){10,}/',
                 'url' => 'nullable|url|unique:references',
             ], [
-                'description.regex' => __('business.reference.error.description format'),
+                'description.regex' => "La description doit dépasser 10 caractères!",
             ]);
 
             Reference::create([
@@ -46,11 +46,11 @@ class ReferenceController extends Controller
                 'url' => $validated['url'],
             ]);
 
-            return redirect(route('references.index'))->with('success', __('business.reference.added'));
+            return redirect(route('references.index'))->with('success', "La référence a été ajoutée!");
         } catch (QueryException $e) {
             Log::Error($e->getMessage());
 
-            return redirect(route('references.index'))->with('error', __('business.reference.error.unique url'));
+            return redirect(route('references.index'))->with('error', "La référence n'a pas pu être créee.");
         }
     }
 
