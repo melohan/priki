@@ -141,7 +141,19 @@ class Practice extends Model
      */
     public function publish(): void
     {
-        $this->publicationState()->associate(PublicationState::where('slug','PUB')->first());
+        $this->publicationState()->associate(PublicationState::where('slug', 'PUB')->first());
         $this->save();
     }
+
+    /**
+     * Return true if user is the author
+     * @param User $user
+     * @return bool
+     */
+    public function isAuthor(User $user): bool
+    {
+        return $this->user->id == $user->id;
+    }
+
+
 }
