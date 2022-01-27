@@ -27,6 +27,6 @@ class ReferenceCard extends Component
      */
     public function render()
     {
-        return view('components.reference.reference-card')->with('reference', $this->reference);;
+        return view('components.reference.reference-card')->with('reference', $this->reference);
     }
 }

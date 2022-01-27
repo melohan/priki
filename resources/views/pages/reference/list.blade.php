@@ -3,7 +3,7 @@
     <div class="w-5/6">
         <div class="grid grid-cols-3 gap-4 ">
             @foreach($references as $reference)
-                <x-reference.reference-card :references="$references"/>
+                <x-reference.reference-card :reference="$reference"/>
             @endforeach
         </div>
     </div>
