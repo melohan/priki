@@ -1,14 +1,22 @@
 <nav class="w-full py-4 2xl bg-gray-700 shadow">
     <div class="w-full container mx-auto flex flex-wrap justify-end">
-        @if(!is_null(Auth::user()) && (Auth::user()->role->slug == 'MOD'))
+        @auth
+            @if(Auth::user()->role->slug == 'MOD')
+                <div class="flex items-end text-lg no-underline text-white pr-6">
+                    <a class="2xl:font-bold" href="{{route('adminList')}}">
+                        Practices
+                    </a>
+                </div>
+            @endif
             <div class="flex items-end text-lg no-underline text-white pr-6">
-                <a class="2xl:font-bold" href="{{route('adminList')}}">
-                    Practices
+                <a class="2xl:font-bold" href="{{route('references.index')}}">
+                    Références
                 </a>
             </div>
-        @endif
+        @endauth
+
         <livewire:practice.dropdown-menu/>
-    @if(is_null(Auth::user()))
+    @guest
         <!-- Login -->
             <div class="flex items-end text-lg no-underline text-white pr-6">
                 <a class="" href="{{route('login')}}">
@@ -21,7 +29,8 @@
                     <i class="fas fa-pen-nib"></i>&nbsp; S'inscrire
                 </a>
             </div>
-    @else
+    @endguest
+    @auth
         <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
@@ -50,15 +59,14 @@
 
                             <x-dropdown-link :href="route('logout')"
                                              onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                       this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
             </div>
-    @endif
-
+    @endauth
     <!-- Home -->
         <div class="flex items-end text-lg no-underline text-white pr-6">
             <a class="" href="{{route('home')}}">
