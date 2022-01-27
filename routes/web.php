@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\ReferenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +30,16 @@ Route::get('/practice/list', [PracticeController::class, 'list'])->name('adminLi
 Route::post('/practice/publish/{id}', [PracticeController::class, 'publish'])
     ->name('practices.publish');
 
-Route::post('/opinion/comment/{id}',[OpinionController::class,'comment'])
+Route::post('/opinion/comment/{id}', [OpinionController::class, 'comment'])
     ->name('opinion.comment');
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('references', ReferenceController::class);
+});
 
 require __DIR__ . '/auth.php';
