@@ -33,7 +33,6 @@ Route::post('/practice/publish/{id}', [PracticeController::class, 'publish'])
 Route::post('/opinion/comment/{id}', [OpinionController::class, 'comment'])
     ->name('opinion.comment');
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -41,5 +40,9 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('references', ReferenceController::class);
 });
+
+Route::post('/practice/update/title/{id}', [PracticeController::class, 'updateTitle'])
+    ->name('practice.updateTitle');
+
 
 require __DIR__ . '/auth.php';
