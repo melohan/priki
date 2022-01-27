@@ -22,7 +22,7 @@
                             @if ($opinion->references->isNotEmpty() && Auth::check())
                                 {{--References list--}}
                                 <dl>
-                                    <dt class="subtitle is-5">Références</dt>
+                                    <dt class="subtitle is-5"></dt>
                                     @foreach($opinion->references as $reference)
                                         <dd>
                                             @if ($reference->url)
