@@ -19,23 +19,39 @@ class ReferenceController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('pages.reference.create');
     }
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validated = $request->validate([
+                'description' => 'required|max:100|regex:/\s*(\S\s*){10,}/',
+                'url' => 'nullable|url|unique:references',
+            ], [
+                'description.regex' => __('business.reference.error.description format'),
+            ]);
+
+            Reference::create([
+                'description' => $validated['description'],
+                'url' => $validated['url'],
+            ]);
+
+            return redirect(route('references.index'))->with('success', __('business.reference.added'));
+        } catch (QueryException $e) {
+            Log::Error($e->getMessage());
+
+            return redirect(route('references.index'))->with('error', __('business.reference.error.unique url'));
+        }
     }
 
     /**
@@ -43,10 +59,12 @@ class ReferenceController extends Controller
      *
      * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
+     * @throw NotImplementedException
      */
+
     public function show(Reference $reference)
     {
-        //
+        throw new NotImplementedException();
     }
 
     /**
@@ -54,22 +72,23 @@ class ReferenceController extends Controller
      *
      * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
+     * @throw NotImplementedException
      */
     public function edit(Reference $reference)
     {
-        //
+        throw new NotImplementedException();
     }
 
     /**
      * Update the specified resource in storage.
-     *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
+     * @throw NotImplementedException
      */
     public function update(Request $request, Reference $reference)
     {
-        //
+        throw new NotImplementedException();
     }
 
     /**
@@ -77,9 +96,10 @@ class ReferenceController extends Controller
      *
      * @param \App\Models\Reference $reference
      * @return \Illuminate\Http\Response
+     * @throw NotImplementedException
      */
     public function destroy(Reference $reference)
     {
-        //
+        throw new NotImplementedException();
     }
 }
