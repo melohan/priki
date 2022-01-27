@@ -8,8 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Reference extends Model
 {
     use HasFactory;
-    public $timestamps=false;
+
+    public $timestamps = false;
     protected $fillable = [
         'description'
     ];
+
+    /**
+     * Check if opinion has url
+     * @return bool
+     */
+    public function hasUrl(): bool
+    {
+        return !is_null($this->url);
+    }
+
 }
