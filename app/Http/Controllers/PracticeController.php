@@ -54,6 +54,8 @@ class PracticeController extends Controller
         if ($request->user()->cannot('publish', $practice)) {
             abort(403);
         }
+
+        // TODO add check for change reason reason
         $validator = Validator::make($request->all(), ['title' => 'required|min:3|max:40']);
 
         if (!$validator->fails()) {
