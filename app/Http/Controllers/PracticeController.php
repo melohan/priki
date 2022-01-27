@@ -44,4 +44,17 @@ class PracticeController extends Controller
 
         return redirect()->route('home')->with('success', __('business.practice.published'));
     }
+
+    public function updateTitle(Request $request, int $id): RedirectResponse
+    {
+        $practice = Practice::find($id);
+        // TODO apply update policy
+        if ($request->user()->cannot('publish', $practice)) {
+            abort(403);
+        }
+
+        $practice->updateTitle($request->input('title'));
+
+        return redirect()->route('home')->with('success', __('business.practice.published'));
+    }
 }
