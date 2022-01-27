@@ -4,11 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Opinion extends Model
 {
     use HasFactory;
 
+
+    /**
+     * Get all reference linked to this opinion.
+     * @return BelongsToMany
+     */
+    public function references(): BelongsToMany
+    {
+        return $this->belongsToMany(Reference::class, 'opinion_reference');
+    }
 
     /**
      * Get the user that owns opinion.
