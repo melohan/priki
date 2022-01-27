@@ -3,7 +3,7 @@
     <a href="{{route('details' ,  ['id' => $practice->id])}}">
         <div class="h-10 bg-gray-700 text-white p-2 flex space-x-80 px-4 ">
             <div class="w-5/6"><h1 class="font-bold text-lg ">
-                    {{Str::limit($practice->description,40, ' ...')}}
+                    {{$practice->title}}
                 </h1>
             </div>
         </div>

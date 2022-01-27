@@ -14,7 +14,7 @@
                 <div class="text-gray-900 font-bold text-xl mb-2">{{$practice->domain->name}}</div>
 
                 <p class="text-gray-700 text-justify">
-                    {{Str::limit($practice->description,200, ' ...')}}
+                    {{$practice->title}}
                 </p>
             </div>
             <div class="flex items-center">
