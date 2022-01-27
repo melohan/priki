@@ -155,5 +155,14 @@ class Practice extends Model
         return $this->user->id == $user->id;
     }
 
+    /**
+     * Update title
+     * @param string $title
+     */
+    public function updateTitle(string $title)
+    {
+        $this->title = $title;
+        $this->save();
+    }
 
 }
