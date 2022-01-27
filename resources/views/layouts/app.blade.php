@@ -32,7 +32,7 @@
             Priki
         </a>
 
-        <p class="text-lg text-gray-600">
+        <p class="text-lg text-gray-700">
             Mélodie Ohan
         </p>
     </div>
