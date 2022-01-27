@@ -1,3 +1,5 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+@can('seeHistory', Auth::user())
+    <div>
+        <h1>Historique des modifications</h1>
+    </div>
+@endcan
