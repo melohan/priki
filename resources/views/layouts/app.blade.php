@@ -31,7 +31,9 @@
         <a class="font-bold text-gray-600 uppercase hover:text-gray-400 text-5xl" href="/">
             Priki
         </a>
+
         <p class="text-lg text-gray-600">
+            Mélodie Ohan
         </p>
     </div>
 </header>
