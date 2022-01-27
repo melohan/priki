@@ -17,6 +17,28 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="font-bold p-1">Référence(s)</td>
+                        <td class="p-1">
+                            @if ($opinion->references->isNotEmpty() && Auth::check())
+                                {{--References list--}}
+                                <dl>
+                                    <dt class="subtitle is-5">Références</dt>
+                                    @foreach($opinion->references as $reference)
+                                        <dd>
+                                            @if ($reference->url)
+                                                <a href="{{ $reference->url }}" target="_blank">
+                                                    {{ $reference->description }}
+                                                </a>
+                                            @else
+                                                {{ $reference->description }}
+                                            @endif
+                                        </dd>
+                                    @endforeach
+                                </dl>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="font-bold p-1">Date de création</td>
                         <td class="p-1">{{\Carbon\Carbon::parse($opinion->created_at)->formatLocalized('%d %B %Y')}}</td>
                     </tr>
