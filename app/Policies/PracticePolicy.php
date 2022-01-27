@@ -56,7 +56,7 @@ class PracticePolicy
     {
         return ($practice->isAuthor($user) || $user->isModerator());
     }
-    
+
 
     /**
      * Determine whether the user can delete the model.
@@ -95,6 +95,17 @@ class PracticePolicy
     }
 
     public function publish(User $user)
+    {
+        return $user->isModerator();
+    }
+
+
+    /**
+     * Determine if user can see history
+     * @param User $user
+     * @return bool
+     */
+    public function seeHistory(User $user)
     {
         return $user->isModerator();
     }
