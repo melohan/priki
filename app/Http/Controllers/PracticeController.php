@@ -8,6 +8,7 @@ use App\Models\Practice;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,14 +48,18 @@ class PracticeController extends Controller
 
     public function updateTitle(Request $request, int $id): RedirectResponse
     {
+
         $practice = Practice::find($id);
         // TODO apply update policy
         if ($request->user()->cannot('publish', $practice)) {
             abort(403);
         }
+        $validator = Validator::make($request->all(), ['title' => 'required|min:3|max:40']);
 
-        $practice->updateTitle($request->input('title'));
-
-        return redirect()->route('home')->with('success', __('business.practice.published'));
+        if (!$validator->fails()) {
+            $practice->updateTitle($request->input('title'));
+            return redirect()->route('home')->with('success', "Titre modifié");
+        }
+        return redirect()->route('details', $id)->with('error', "Le titre n'a pas pu être modifié..");
     }
 }
